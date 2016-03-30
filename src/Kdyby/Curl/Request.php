@@ -56,7 +56,7 @@ class Request extends RequestOptions
 	/** @var string */
 	private $cookieFile;
 	/** @var bool */
-	private $cookieUnlink = TRUE;
+	public $cookieUnlink = TRUE;
 
 	/**
 	 * @param string $url
@@ -81,7 +81,7 @@ class Request extends RequestOptions
 	}
 
 	public function setCookieFile($cookieFile) {
-		if(isset($this->cookieFile)) {
+		if(isset($this->cookieFile) && $this->cookieUnlink) {
 			@unlink($this->cookieFile);
 		}
 		$this->cookieFile = $cookieFile;
