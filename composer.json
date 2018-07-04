@@ -17,8 +17,8 @@
 		"issues": "https://github.com/kdyby/curl/issues"
 	},
 	"require": {
-		"nette/http": "~2.2@dev",
-		"nette/utils": "~2.2@dev",
+		"nette/http": "~2.4@dev",
+		"nette/utils": "~2.4@dev",
 
 		"ext-curl": "*"
 	},
@@ -56,7 +56,7 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "2.2-dev"
+			"dev-master": "2.4-dev"
 		}
 	}
 }

@@ -24,8 +24,10 @@ use Nette\Utils\Strings;
  * @property-read array $options
  * @property-read array $headers
  */
-class CurlWrapper extends Nette\Object
+class CurlWrapper
 {
+	use \Nette\SmartObject;
+
 	/**#@+ regexp's for parsing */
 	const HEADER_REGEXP = '~(?P<header>.*?)\:\s(?P<value>.*)~';
 	const VERSION_AND_STATUS = '~^HTTP/(?P<version>\d\.\d)\s(?P<code>\d+)(\s(?P<status>.*))?~';

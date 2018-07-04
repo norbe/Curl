@@ -18,8 +18,9 @@ use Nette;
 /**
  * @author Filip Procházka <filip@prochazka.su>
  */
-class Helpers extends Nette\Object
+class Helpers
 {
+	use \Nette\SmartObject;
 
 
 	/**

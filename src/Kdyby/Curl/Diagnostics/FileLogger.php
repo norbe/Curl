@@ -21,9 +21,10 @@ use Tracy\Debugger;
 /**
  * @author Filip Procházka <filip@prochazka.su>
  */
-class FileLogger extends Nette\Object implements Curl\IRequestLogger
+class FileLogger implements Curl\IRequestLogger
 {
-
+	use \Nette\SmartObject;
+	
 	/** @var string */
 	private $logDir;
 

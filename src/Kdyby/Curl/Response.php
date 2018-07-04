@@ -25,8 +25,9 @@ use Nette\Utils\Strings;
  * @property-read array $cookies
  * @property-read array $info
  */
-class Response extends Nette\Object
+class Response
 {
+	use \Nette\SmartObject;
 
 	/** @var array */
 	private $headers;

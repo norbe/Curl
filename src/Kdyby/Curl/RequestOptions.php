@@ -25,8 +25,10 @@ use Nette;
  * @property-write int $maximumRedirects
  * @property-write bool $returnTransfer
  */
-abstract class RequestOptions extends Nette\Object
+abstract class RequestOptions
 {
+	use \Nette\SmartObject;
+
 	/**#@+ verify host for certificates */
 	const VERIFYHOST_NO = 0;
 	const VERIFYHOST_COMMON = 1;

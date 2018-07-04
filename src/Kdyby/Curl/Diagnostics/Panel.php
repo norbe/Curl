@@ -22,8 +22,9 @@ use Tracy\Dumper;
 /**
  * @author Filip Procházka <filip@prochazka.su>
  */
-class Panel extends Nette\Object
+class Panel
 {
+	use \Nette\SmartObject;
 
 	/**
 	 * @param \Exception $e
