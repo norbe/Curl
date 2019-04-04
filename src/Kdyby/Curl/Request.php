@@ -20,9 +20,6 @@ use Nette\Utils\ObjectMixin;
 
 /**
  * @author Filip Procházka <filip@prochazka.su>
- *
- * @method \Kdyby\Curl\Request setUrl(string $url)
- * @method \Kdyby\Curl\Request setMethod(string $method)
  */
 class Request extends RequestOptions
 {
@@ -103,6 +100,11 @@ class Request extends RequestOptions
 		}
 		return $this->url;
 	}
+	
+	public function setUrl($url) {
+		$this->url = $url;
+		return $this;
+	}
 
 
 
@@ -123,6 +125,10 @@ class Request extends RequestOptions
 	public function isMethod($method)
 	{
 		return $this->method === $method;
+	}
+	
+	public function setMethod($method) {
+		$this->method = $method;
 	}
 
 
@@ -277,24 +283,6 @@ class Request extends RequestOptions
 		$request->post = $request->files = array();
 		$request->setUrl(static::fixUrl($request->getUrl(), $response->headers['Location']));
 		return $request;
-	}
-
-
-
-	/**
-	 * @param string $name
-	 * @param array $args
-	 *
-	 * @return mixed
-	 */
-	public function __call($name, $args)
-	{
-		if (method_exists('Nette\Utils\ObjectMixin', 'callProperty')) {
-			return ObjectMixin::callProperty($this, $name, $args);
-
-		} else {
-			return ObjectMixin::call($this, $name, $args);
-		}
 	}
 
 
