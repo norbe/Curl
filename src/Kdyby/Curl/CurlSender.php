@@ -112,7 +112,7 @@ class CurlSender extends RequestOptions
 	 */
 	public function setConfirmRedirect($confirmRedirect)
 	{
-		$this->confirmRedirect = callback($confirmRedirect);
+		$this->confirmRedirect = \Nette\Utils\Callback::closure($confirmRedirect);
 	}
 
 
@@ -136,7 +136,7 @@ class CurlSender extends RequestOptions
 	protected function confirmRedirect(Response $response)
 	{
 		if ($this->confirmRedirect !== NULL) {
-			return (bool)$this->confirmRedirect->invoke($response);
+			return (bool)call_user_func_array($this->confirmRedirect, [$response]);
 		}
 
 		return TRUE;
