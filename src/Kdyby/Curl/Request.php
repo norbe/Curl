@@ -109,16 +109,6 @@ class Request extends RequestOptions
 
 
 	/**
-	 * @return HttpCookies
-	 */
-	public function getCookies()
-	{
-		return new HttpCookies($this->cookies);
-	}
-
-
-
-	/**
 	 * @param string $method
 	 * @return boolean
 	 */
@@ -339,7 +329,7 @@ class Request extends RequestOptions
 	 */
 	public function __sleep()
 	{
-		return array('url', 'method', 'headers', 'options', 'cookies', 'post', 'files');
+		return array('url', 'method', 'headers', 'options', 'post', 'files');
 	}
 
 }
