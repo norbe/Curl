@@ -274,7 +274,7 @@ class CurlWrapper
 			return $this->options[$name];
 		}
 
-		return parent::__get($name);
+		return Nette\SmartObject::__get($name);
 	}
 
 
@@ -289,7 +289,7 @@ class CurlWrapper
 			$this->setOption($name, $value);
 
 		} else {
-			parent::__set($name, $value);
+			Nette\SmartObject::__set($name, $value);
 		}
 	}
 
