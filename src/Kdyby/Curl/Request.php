@@ -74,7 +74,7 @@ class Request extends RequestOptions
 
 	public function updateCookieFile() {
 		
-		$this->setCookieFile(tempnam('/tmp', 'cookie'));
+		$this->setCookieFile(tempnam(sys_get_temp_dir(), 'cookie'));
 	}
 
 	public function setCookieFile($cookieFile) {
