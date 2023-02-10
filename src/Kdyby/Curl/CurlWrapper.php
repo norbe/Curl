@@ -144,7 +144,7 @@ class CurlWrapper
 	 */
 	public function setUrl($url)
 	{
-		$this->url = new Url($url);
+		$this->url = is_string($url) ? new Url($url) : clone $url;
 		return $this;
 	}
 
