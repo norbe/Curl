@@ -312,7 +312,7 @@ class CurlSender extends RequestOptions
 		// build & check response
 		$response = $this->buildResponse($curl);
 		if (($statusCode = $response->headers['Status-Code']) >= 400 && $statusCode < 600) {
-			throw new BadStatusException($response->headers['Status'], $request, $response);
+			throw new BadStatusException(@$response->headers['Status'], $request, $response);
 		}
 
 		// force redirect on Location header
