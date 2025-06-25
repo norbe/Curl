@@ -34,7 +34,7 @@ class CurlExtension extends Nette\DI\CompilerExtension
 	public function afterCompile(Code\ClassType $class)
 	{
 		/** @var Code\Method $init */
-		$init = $class->methods['initialize'];
+		$init = $class->getMethod('initialize');
 		$init->addBody('Kdyby\Curl\Diagnostics\Panel::registerBluescreen();');
 	}
 
