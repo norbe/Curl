@@ -518,7 +518,7 @@ class CurlWrapper
 			throw new InvalidArgumentException("Response must be either string or bool(false), " . gettype($response) . " given.");
 		}
 
-		if (!is_resource($this->handle)) {
+		if (!$this->handle instanceof \CurlHandle) {
 			throw new InvalidStateException("Request was not initialized, please call the init() method first, or pool the request in curl_multi.");
 		}
 
