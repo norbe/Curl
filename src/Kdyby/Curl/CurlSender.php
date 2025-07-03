@@ -274,7 +274,7 @@ class CurlSender extends RequestOptions
 		$curl = $this->initRequest($request, $requestId);
 
 		// sending process
-		$repeat = $this->repeatOnFail;
+		$repeat = (int)$this->repeatOnFail;
 		do {
 			$proxies = $this->proxies;
 			do {
