@@ -190,7 +190,7 @@ class Request extends RequestOptions
 	 * @throws CurlException
 	 * @return Response
 	 */
-	public function post($post = array(), array $files = NULL)
+	public function post($post = array(), ?array $files = NULL)
 	{
 		$this->method = static::POST;
 		$this->post = $post;
@@ -301,8 +301,10 @@ class Request extends RequestOptions
 		$lastUrl = new Url($from);
 		$url = new Url($to);
 
+
+
 		if (!$to instanceof Url && $url->path[0] !== '/') { // relative
-			$url->path = substr($lastUrl->path, 0, strrpos($lastUrl->path, '/') + 1) . $url->path;
+			$url = $url->withPath(substr($lastUrl->path, 0, strrpos($lastUrl->path, '/') + 1) . $url->path);
 		}
 
 		foreach (array('scheme', 'host', 'port') as $copy) {
@@ -310,13 +312,21 @@ class Request extends RequestOptions
 				if (empty($lastUrl->{$copy})) {
 					throw new InvalidUrlException("Missing URL $copy!");
 				}
-
-				$url->{$copy} = $lastUrl->{$copy};
+				switch($copy) {
+					case 'scheme':
+						$url = $url->withScheme($lastUrl->scheme);
+						break;
+					case 'host':
+						$url = $url->withHost($lastUrl->host);
+						break;
+					case 'port':
+						$url = $url->withPort($lastUrl->port);
+						break;
+				}
 			}
 		}
-
 		if (!$url->path || $url->path[0] !== '/') {
-			$url->path = '/' . $url->path;
+			$url= $url->withPath('/' . $url->path);
 		}
 
 		return $url;
