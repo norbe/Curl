@@ -177,7 +177,7 @@ class Request extends RequestOptions
 	{
 		$this->method = static::GET;
 		$this->post = $this->files = array();
-		$this->getUrl()->appendQuery($query);
+		$this->url = $this->getUrl()->withQuery($query);
 		return $this->send();
 	}
 
