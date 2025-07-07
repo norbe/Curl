@@ -61,7 +61,7 @@ class Response
 	 *
 	 * @return Response
 	 */
-	public function setPrevious(Response $previous = NULL)
+	public function setPrevious(?Response $previous = NULL)
 	{
 		$this->previous = $previous;
 		return $this;
