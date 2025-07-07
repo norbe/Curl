@@ -163,7 +163,7 @@ class Response
 			throw new CurlException("Failed parsing of response headers");
 		}
 
-		$curl->response = Strings::substring($curl->response, $headerSize);
+		$curl->response = substr($curl->response, $headerSize);
 		return $headers;
 	}
 
