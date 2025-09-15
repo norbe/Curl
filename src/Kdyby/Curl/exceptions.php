@@ -115,7 +115,7 @@ class CurlException extends \RuntimeException implements Exception
 	 * @param \Kdyby\Curl\Request $request
 	 * @param \Kdyby\Curl\Response $response
 	 */
-	public function __construct($message, Request $request = NULL, Response $response = NULL)
+	public function __construct($message, ?Request $request = NULL, ?Response $response = NULL)
 	{
 		parent::__construct($message ?:'', 0);
 		$this->request = $request;
@@ -165,7 +165,7 @@ class FailedRequestException extends CurlException
 	 * @param \Kdyby\Curl\CurlWrapper $curl
 	 * @param Request $request
 	 */
-	public function __construct(CurlWrapper $curl, Request $request = NULL)
+	public function __construct(CurlWrapper $curl, ?Request $request = NULL)
 	{
 		parent::__construct($curl->error . ' ' . $curl->getUrl()->getAuthority(), $request);
 		$this->code = $curl->errorNumber;
