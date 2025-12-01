@@ -374,7 +374,7 @@ class CurlWrapper
 	 * @throws NotSupportedException
 	 * @return CurlWrapper
 	 */
-	public function setPost($post = array(), array $files = NULL)
+	public function setPost($post = array(), ?array $files = NULL)
 	{
 		if ($files) {
 			if (!is_array($post)) {
